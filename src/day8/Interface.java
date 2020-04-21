@@ -1,47 +1,35 @@
 package day8;
 
-	import java.util.*; 
-	import java.lang.*; 
-	import java.io.*; 
-	   
-	interface one 
-	{ 
-	    public void print_geek(); 
-	} 
-	   
-	interface two 
-	{ 
-	    public void print_for(); 
-	} 
-	   
-	interface three extends one,two 
-	{ 
-	    public void print_geek(); 
-	} 
-	class child implements three 
-	{ 
-	    @Override
-	    public void print_geek() { 
-	        System.out.println("Geeks"); 
-	    } 
-	   
-	    public void print_for() 
-	    { 
-	        System.out.println("for"); 
-	    } 
-	} 
-	  
-	// Drived class 
-	public class Interface {
-	{ 
-	    public static void main(String[] args) 
-	    { 
-	        child c = new child(); 
-	        c.print_geek(); 
-	        c.print_for(); 
-	        c.print_geek(); 
-	    } 
-	} 
+
+interface MyInterface
+{
+   /* compiler will treat them as: 
+    * public abstract void method1();
+    * public abstract void method2();
+    */
+   public void method1();
+   public void method2();
+}
+class Interface implements MyInterface
+{
+   /* This class must have to implement both the abstract methods
+    * else you will get compilation error
+    */
+   public void method1()
+   {
+	System.out.println("implementation of method1");
+   }
+   public void method2()
+   {
+	System.out.println("implementation of method2");
+   }
+   public static void main(String arg[])
+   {
+	MyInterface obj = new Interface();
+	obj.method1();
+   }
+}
 	
 
-}
+
+
